@@ -59,3 +59,7 @@ pytest tests
 ### Design Philosophy
 
 # TODO
+
+## References & Sources
+- <a href="https://aima.cs.berkeley.edu/contents.html"><i>Artificial Intelligence: A Modern Approach</i></a> by Stuart Russell and Peter Norvig
+- <i>Notre-Dame de Paris</i> by Victor Hugo, translated by Isabel F. Hapgood (via <a href="https://www.gutenberg.org/files/2610/2610-h/2610-h.htm">Project Gutenberg</a>)

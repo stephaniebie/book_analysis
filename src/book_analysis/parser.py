@@ -61,6 +61,7 @@ def parse_title(title: str) -> tuple[list[int], str]:
     The title as a string
     """
     # Remove leading and trailing whitespaces
+    unformatted_title = title
     title = title.strip()
     # Parse highest level section
     if title.startswith("Part "):
@@ -78,4 +79,4 @@ def parse_title(title: str) -> tuple[list[int], str]:
         title = title.split(section_num, maxsplit=1)[-1].strip()
         return [None] + [int(n) for n in section_num.split(".")], title
     # Raises an error if format isn't recognized
-    raise ValueError(f"'{title}' is improperly formatted")
+    raise ValueError(f"'{unformatted_title}' is improperly formatted")

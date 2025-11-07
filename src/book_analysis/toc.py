@@ -80,7 +80,7 @@ class TableOfContents:
         except:
             current_level.children.append(section)
 
-    def print_toc(self, mode: str = "indented+numbers"):
+    def print(self, mode: str = "indented+numbers"):
         """
         Prints the table of contents to stdout.
         """

@@ -32,7 +32,7 @@ pip install .
 
 ### For Developers
 
-Once in the environment, install the package in editable mode:
+Install the package in editable mode:
 
 ```bash
 pip install -e .[dev]
@@ -48,17 +48,11 @@ Optionally, run `black .` prior to pushing to ensure uniform formatting.
 
 ## Testing
 
-Run the following command to run the unit tests:
+Use the following command to run the unit tests:
 
 ```bash
 pytest tests
 ```
-
-## Setup
-
-### Design Philosophy
-
-# TODO
 
 ## References & Sources
 - <a href="https://aima.cs.berkeley.edu/contents.html"><i>Artificial Intelligence: A Modern Approach</i></a> by Stuart Russell and Peter Norvig

@@ -1,0 +1,762 @@
+Part I: Artificial Intelligence
+Chapter 1   Introduction ... 1
+    1.1   What Is AI? ... 1
+        1.1.1   Acting humanly: The Turing test approach ... 2
+        1.1.2   Thinking humanly: The cognitive modeling approach ... 2
+        1.1.3   Thinking rationally: The ``laws of thought'' approach ... 3
+        1.1.4   Acting rationally: The rational agent approach ... 3
+        1.1.5   Beneficial machines ... 4
+    1.2   The Foundations of Artificial Intelligence ... 5
+        1.2.1   Philosophy ... 6
+        1.2.2   Mathematics ... 8
+        1.2.3   Economics ... 9
+        1.2.4   Neuroscience ... 11
+        1.2.5   Psychology ... 12
+        1.2.6   Computer engineering ... 14
+        1.2.7   Control theory and cybernetics ... 15
+        1.2.8   Linguistics ... 16
+    1.3   The History of Artificial Intelligence ... 17
+        1.3.1   The inception of artificial intelligence (1943--1956) ... 17
+        1.3.2   Early enthusiasm, great expectations (1952--1969) ... 18
+        1.3.3   A dose of reality (1966--1973) ... 21
+        1.3.4   Expert systems (1969--1986) ... 22
+        1.3.5   The return of neural networks (1986--present) ... 24
+        1.3.6   Probabilistic reasoning and machine learning (1987--present) ... 24
+        1.3.7   Big data (2001--present) ... 26
+        1.3.8   Deep learning (2011--present) ... 26
+    1.4   The State of the Art ... 27
+    1.5   Risks and Benefits of AI ... 31
+    Summary ... 34
+    Bibliographical and Historical Notes ... 35
+Chapter 2   Intelligent Agents ... 36
+    2.1   Agents and Environments ... 36
+    2.2   Good Behavior: The Concept of Rationality ... 39
+        2.2.1   Performance measures ... 39
+        2.2.2   Rationality ... 40
+        2.2.3   Omniscience, learning, and autonomy ... 40
+    2.3   The Nature of Environments ... 42
+        2.3.1   Specifying the task environment ... 42
+        2.3.2   Properties of task environments ... 43
+    2.4   The Structure of Agents ... 47
+        2.4.1   Agent programs ... 48
+        2.4.2   Simple reflex agents ... 49
+        2.4.3   Model-based reflex agents ... 51
+        2.4.4   Goal-based agents ... 53
+        2.4.5   Utility-based agents ... 54
+        2.4.6   Learning agents ... 56
+        2.4.7   How the components of agent programs work ... 58
+    Summary ... 60
+    Bibliographical and Historical Notes ... 60
+Part II: Problem-solving
+Chapter 3   Solving Problems by Searching ... 63
+    3.1   Problem-Solving Agents ... 63
+        3.1.1   Search problems and solutions ... 65
+        3.1.2   Formulating problems ... 66
+    3.2   Example Problems ... 66
+        3.2.1   Standardized problems ... 66
+        3.2.2   Real-world problems ... 69
+    3.3   Search Algorithms ... 71
+        3.3.1   Best-first search ... 73
+        3.3.2   Search data structures ... 73
+        3.3.3   Redundant paths ... 74
+        3.3.4   Measuring problem-solving performance ... 75
+    3.4   Uninformed Search Strategies ... 76
+        3.4.1   Breadth-first search ... 76
+        3.4.2   Dijkstra's algorithm or uniform-cost search ... 77
+        3.4.3   Depth-first search and the problem of memory ... 78
+        3.4.4   Depth-limited and iterative deepening search ... 80
+        3.4.5   Bidirectional search ... 82
+        3.4.6   Comparing uninformed search algorithms ... 84
+    3.5   Informed (Heuristic) Search Strategies ... 84
+        3.5.1   Greedy best-first search ... 85
+        3.5.2   A* search ... 85
+        3.5.3   Search contours ... 89
+        3.5.4   Satisficing search: Inadmissible heuristics and weighted A* ... 90
+        3.5.5   Memory-bounded search ... 92
+        3.5.6   Bidirectional heuristic search ... 96
+    3.6   Heuristic Functions ... 97
+        3.6.1   The effect of heuristic accuracy on performance ... 98
+        3.6.2   Generating heuristics from relaxed problems ... 99
+        3.6.3   Generating heuristics from subproblems: Pattern databases ... 100
+        3.6.4   Generating heuristics with landmarks ... 102
+        3.6.5   Learning to search better ... 103
+        3.6.6   Learning heuristics from experience ... 104
+    Summary ... 104
+    Bibliographical and Historical Notes ... 106
+Chapter 4   Search in Complex Environments ... 110
+    4.1   Local Search and Optimization Problems ... 110
+        4.1.1   Hill-climbing search ... 111
+        4.1.2   Simulated annealing ... 114
+        4.1.3   Local beam search ... 115
+        4.1.4   Evolutionary algorithms ... 115
+    4.2   Local Search in Continuous Spaces ... 119
+    4.3   Search with Nondeterministic Actions ... 122
+        4.3.1   The erratic vacuum world ... 122
+        4.3.2   AND—OR search trees ... 123
+        4.3.3   Try, try again ... 125
+    4.4   Search in Partially Observable Environments ... 126
+        4.4.1   Searching with no observation ... 126
+        4.4.2   Searching in partially observable environments ... 130
+        4.4.3   Solving partially observable problems ... 132
+        4.4.4   An agent for partially observable environments ... 132
+    4.5   Online Search Agents and Unknown Environments ... 134
+        4.5.1   Online search problems ... 135
+        4.5.2   Online search agents ... 137
+        4.5.3   Online local search ... 138
+        4.5.4   Learning in online search ... 140
+    Summary ... 141
+    Bibliographical and Historical Notes ... 142
+Chapter 5   Adversarial Search and Games ... 146
+    5.1   Game Theory ... 146
+        5.1.1   Two-player zero-sum games ... 147
+    5.2   Optimal Decisions in Games ... 148
+        5.2.1   The minimax search algorithm ... 149
+        5.2.2   Optimal decisions in multiplayer games ... 151
+        5.2.3   Alpha--Beta Pruning ... 152
+        5.2.4   Move ordering ... 153
+    5.3   Heuristic Alpha--Beta Tree Search ... 156
+        5.3.1   Evaluation functions ... 156
+        5.3.2   Cutting off search ... 158
+        5.3.3   Forward pruning ... 159
+        5.3.4   Search versus lookup ... 160
+    5.4   Monte Carlo Tree Search ... 161
+    5.5   Stochastic Games ... 164
+        5.5.1   Evaluation functions for games of chance ... 166
+    5.6   Partially Observable Games ... 168
+        5.6.1   Kriegspiel: Partially observable chess ... 168
+        5.6.2   Card games ... 171
+    5.7   Limitations of Game Search Algorithms ... 173
+    Summary ... 174
+    Bibliographical and Historical Notes ... 175
+Chapter 6   Constraint Satisfaction Problems ... 180
+    6.1   Defining Constraint Satisfaction Problems ... 180
+        6.1.1   Example problem: Map coloring ... 181
+        6.1.2   Example problem: Job-shop scheduling ... 182
+        6.1.3   Variations on the CSP formalism ... 183
+    6.2   Constraint Propagation: Inference in CSPs ... 185
+        6.2.1   Node consistency ... 186
+        6.2.2   Arc consistency ... 186
+        6.2.3   Path consistency ... 187
+        6.2.4   Kconsistency ... 188
+        6.2.5   Global constraints ... 188
+        6.2.6   Sudoku ... 189
+    6.3   Backtracking Search for CSPs ... 191
+        6.3.1   Variable and value ordering ... 193
+        6.3.2   Interleaving search and inference ... 194
+        6.3.3   Intelligent backtracking: Looking backward ... 195
+        6.3.4   Constraint learning ... 196
+    6.4   Local Search for CSPs ... 197
+    6.5   The Structure of Problems ... 199
+        6.5.1   Cutset conditioning ... 200
+        6.5.2   Tree decomposition ... 201
+        6.5.3   Value symmetry ... 203
+    Summary ... 203
+    Bibliographical and Historical Notes ... 204
+Part III: Knowledge, reasoning, and planning
+Chapter 7   Logical Agents ... 208
+    7.1   Knowledge-Based Agents ... 209
+    7.2   The Wumpus World ... 210
+    7.3   Logic ... 214
+    7.4   Propositional Logic: A Very Simple Logic ... 217
+        7.4.1   Syntax ... 217
+        7.4.2   Semantics ... 218
+        7.4.3   A simple knowledge base ... 220
+        7.4.4   A simple inference procedure ... 220
+    7.5   Propositional Theorem Proving ... 222
+        7.5.1   Inference and proofs ... 223
+        7.5.2   Proof by resolution ... 225
+            Conjunctive normal form ... 226
+            A resolution algorithm ... 227
+            Completeness of resolution ... 228
+        7.5.3   Horn clauses and definite clauses ... 229
+        7.5.4   Forward and backward chaining ... 230
+    7.6   Effective Propositional Model Checking ... 232
+        7.6.1   A complete backtracking algorithm ... 233
+        7.6.2   Local search algorithms ... 235
+        7.6.3   The landscape of random SAT problems ... 236
+    7.7   Agents Based on Propositional Logic ... 237
+        7.7.1   The current state of the world ... 237
+        7.7.2   A hybrid agent ... 241
+        7.7.3   Logical state estimation ... 241
+        7.7.4   Making plans by propositional inference ... 244
+    Summary ... 246
+    Bibliographical and Historical Notes ... 247
+Chapter 8   First-Order Logic ... 251
+    8.1   Representation Revisited ... 251
+        8.1.1   The language of thought ... 252
+        8.1.2   Combining the best of formal and natural languages ... 254
+    8.2   Syntax and Semantics of First-Order Logic ... 256
+        8.2.1   Models for first-order logic ... 256
+        8.2.2   Symbols and interpretations ... 257
+        8.2.3   Terms ... 259
+        8.2.4   Atomic sentences ... 260
+        8.2.5   Complex sentences ... 260
+        8.2.6   Quantifiers ... 260
+            Universal quantification (∀) ... 260
+            Existential quantification (∃) ... 262
+            Nested quantifiers ... 263
+            Connections between ∀ and ∃ ... 263
+        8.2.7   Equality ... 264
+        8.2.8   Database semantics ... 264
+    8.3   Using First-Order Logic ... 265
+        8.3.1   Assertions and queries in first-order logic ... 265
+        8.3.2   The kinship domain ... 266
+        8.3.3   Numbers, sets, and lists ... 268
+        8.3.4   The wumpus world ... 270
+    8.4   Knowledge Engineering in First-Order Logic ... 271
+        8.4.1   The knowledge engineering process ... 272
+        8.4.2   The electronic circuits domain ... 273
+            Identify the questions ... 273
+            Assemble the relevant knowledge ... 274
+            Decide on a vocabulary ... 274
+            Encode general knowledge of the domain ... 275
+            Encode the specific problem instance ... 276
+            Pose queries to the inference procedure ... 276
+            Debug the knowledge base ... 277
+    Summary ... 277
+    Bibliographical and Historical Notes ... 278
+Chapter 9   Inference in First-Order Logic ... 280
+    9.1   Propositional vs. First-Order Inference ... 280
+        9.1.1   Reduction to propositional inference ... 281
+    9.2   Unification and First-Order Inference ... 282
+        9.2.1   Unification ... 283
+        9.2.2   Storage and retrieval ... 284
+    9.3   Forward Chaining ... 286
+        9.3.1   First-order definite clauses ... 286
+        9.3.2   A simple forward-chaining algorithm ... 287
+        9.3.3   Efficient forward chaining ... 289
+            Matching rules against known facts ... 289
+            Incremental forward chaining ... 291
+            Irrelevant facts ... 292
+    9.4   Backward Chaining ... 293
+        9.4.1   A backward-chaining algorithm ... 293
+        9.4.2   Logic programming ... 294
+        9.4.3   Redundant inference and infinite loops ... 295
+        9.4.4   Database semantics of Prolog ... 297
+        9.4.5   Constraint logic programming ... 298
+    9.5   Resolution ... 298
+        9.5.1   Conjunctive normal form for first-order logic ... 299
+        9.5.2   The resolution inference rule ... 300
+        9.5.3   Example proofs ... 301
+        9.5.4   Completeness of resolution ... 303
+        9.5.5   Equality ... 306
+        9.5.6   Resolution strategies ... 308
+            Practical uses of resolution theorem provers ... 309
+    Summary ... 309
+    Bibliographical and Historical Notes ... 310
+Chapter 10   Knowledge Representation ... 314
+    10.1   Ontological Engineering ... 314
+    10.2   Categories and Objects ... 317
+        10.2.1   Physical composition ... 318
+        10.2.2   Measurements ... 319
+        10.2.3   Objects: Things and stuff ... 321
+    10.3   Events ... 322
+        10.3.1   Time ... 324
+        10.3.2   Fluents and objects ... 325
+    10.4   Mental Objects and Modal Logic ... 326
+        10.4.1   Other modal logics ... 328
+    10.5   Reasoning Systems for Categories ... 329
+        10.5.1   Semantic networks ... 329
+        10.5.2   Description logics ... 331
+    10.6   Reasoning with Default Information ... 333
+        10.6.1   Circumscription and default logic ... 333
+        10.6.2   Truth maintenance systems ... 335
+    Summary ... 337
+    Bibliographical and Historical Notes ... 338
+Chapter 11   Automated Planning ... 344
+    11.1   Definition of Classical Planning ... 344
+        11.1.1   Example domain: Air cargo transport ... 345
+        11.1.2   Example domain: The spare tire problem ... 346
+        11.1.3   Example domain: The blocks world ... 346
+    11.2   Algorithms for Classical Planning ... 348
+        11.2.1   Forward state-space search for planning ... 348
+        11.2.2   Backward search for planning ... 350
+        11.2.3   Planning as Boolean satisfiability ... 351
+        11.2.4   Other classical planning approaches ... 352
+    11.3   Heuristics for Planning ... 353
+        11.3.1   Domain-independent pruning ... 354
+        11.3.2   State abstraction in planning ... 355
+    11.4   Hierarchical Planning ... 356
+        11.4.1   High-level actions ... 357
+        11.4.2   Searching for primitive solutions ... 358
+        11.4.3   Searching for abstract solutions ... 360
+    11.5   Planning and Acting in Nondeterministic Domains ... 365
+        11.5.1   Sensorless planning ... 367
+        11.5.2   Contingent planning ... 370
+        11.5.3   Online planning ... 371
+    11.6   Time, Schedules, and Resources ... 374
+        11.6.1   Representing temporal and resource constraints ... 375
+        11.6.2   Solving scheduling problems ... 376
+    11.7   Analysis of Planning Approaches ... 378
+    Summary ... 379
+    Bibliographical and Historical Notes ... 380
+Part IV: Uncertain knowledge and reasoning
+Chapter 12   Quantifying Uncertainty ... 385
+    12.1   Acting under Uncertainty ... 385
+        12.1.1   Summarizing uncertainty ... 386
+        12.1.2   Uncertainty and rational decisions ... 387
+    12.2   Basic Probability Notation ... 388
+        12.2.1   What probabilities are about ... 388
+        12.2.2   The language of propositions in probability assertions ... 390
+        12.2.3   Probability axioms and their reasonableness ... 393
+    12.3   Inference Using Full Joint Distributions ... 395
+    12.4   Independence ... 397
+    12.5   Bayes' Rule and Its Use ... 399
+        12.5.1   Applying Bayes' rule: The simple case ... 399
+        12.5.2   Using Bayes' rule: Combining evidence ... 400
+    12.6   Naive Bayes Models ... 402
+        12.6.1   Text classification with naive Bayes ... 403
+    12.7   The Wumpus World Revisited ... 404
+    Summary ... 407
+    Bibliographical and Historical Notes ... 408
+Chapter 13   Probabilistic Reasoning ... 412
+    13.1   Representing Knowledge in an Uncertain Domain ... 412
+    13.2   The Semantics of Bayesian Networks ... 414
+            A method for constructing Bayesian networks ... 415
+            Compactness and node ordering ... 417
+        13.2.1   Conditional independence relations in Bayesian networks ... 418
+        13.2.2   Efficient Representation of Conditional Distributions ... 420
+        13.2.3   Bayesian nets with continuous variables ... 422
+        13.2.4   Case study: Car insurance ... 424
+    13.3   Exact Inference in Bayesian Networks ... 427
+        13.3.1   Inference by enumeration ... 427
+        13.3.2   The variable elimination algorithm ... 430
+            Operations on factors ... 431
+            Variable ordering and variable relevance ... 432
+        13.3.3   The complexity of exact inference ... 433
+        13.3.4   Clustering algorithms ... 434
+    13.4   Approximate Inference for Bayesian Networks ... 435
+        13.4.1   Direct sampling methods ... 436
+            Rejection sampling in Bayesian networks ... 437
+            Importance sampling ... 439
+        13.4.2   Inference by Markov chain simulation ... 441
+            Gibbs sampling in Bayesian networks ... 442
+            Analysis of Markov chains ... 443
+            Why Gibbs sampling works ... 445
+            Complexity of Gibbs sampling ... 446
+            Metropolis--Hastings sampling ... 447
+        13.4.3   Compiling approximate inference ... 448
+    13.5   Causal Networks ... 449
+        13.5.1   Representing actions: do-operator ... 451
+        13.5.2   The back-door criterion ... 453
+    Summary ... 453
+    Bibliographical and Historical Notes ... 454
+Chapter 14   Probabilistic Reasoning over Time ... 461
+    14.1   Time and Uncertainty ... 461
+        14.1.1   States and observations ... 462
+        14.1.2   Transition and sensor models ... 463
+    14.2   Inference in Temporal Models ... 465
+        14.2.1   Filtering and prediction ... 466
+        14.2.2   Smoothing ... 468
+        14.2.3   Finding the most likely sequence ... 471
+    14.3   Hidden Markov Models ... 473
+        14.3.1   Simplified matrix algorithms ... 474
+        14.3.2   Hidden Markov model example: Localization ... 476
+    14.4   Kalman Filters ... 479
+        14.4.1   Updating Gaussian distributions ... 479
+        14.4.2   A simple one-dimensional example ... 480
+        14.4.3   The general case ... 482
+        14.4.4   Applicability of Kalman filtering ... 483
+    14.5   Dynamic Bayesian Networks ... 485
+        14.5.1   Constructing DBNs ... 486
+        14.5.2   Exact inference in DBNs ... 489
+        14.5.3   Approximate inference in DBNs ... 491
+    Summary ... 496
+    Bibliographical and Historical Notes ... 497
+Chapter 15   Probabilistic Programming ... 500
+    15.1   Relational Probability Models ... 501
+        15.1.1   Syntax and semantics ... 502
+        15.1.2   Example: Rating player skill levels ... 505
+        15.1.3   Inference in relational probability models ... 506
+    15.2   Open-Universe Probability Models ... 507
+        15.2.1   Syntax and semantics ... 508
+        15.2.2   Inference in open-universe probability models ... 510
+        15.2.3   Examples ... 511
+            Citation matching ... 511
+            Nuclear treaty monitoring ... 512
+    15.3   Keeping Track of a Complex World ... 514
+        15.3.1   Example: Multitarget tracking ... 515
+        15.3.2   Example: Traffic monitoring ... 518
+    15.4   Programs as Probability Models ... 519
+        15.4.1   Example: Reading text ... 519
+        15.4.2   Syntax and semantics ... 520
+        15.4.3   Inference results ... 522
+        15.4.4   Improving the generative program to incorporate a Markov model ... 522
+        15.4.5   Inference in generative programs ... 522
+    Summary ... 523
+    Bibliographical and Historical Notes ... 524
+Chapter 16   Making Simple Decisions ... 528
+    16.1   Combining Beliefs and Desires under Uncertainty ... 528
+    16.2   The Basis of Utility Theory ... 529
+        16.2.1   Constraints on rational preferences ... 530
+        16.2.2   Rational preferences lead to utility ... 531
+    16.3   Utility Functions ... 532
+        16.3.1   Utility assessment and utility scales ... 533
+        16.3.2   The utility of money ... 534
+        16.3.3   Expected utility and post-decision disappointment ... 536
+        16.3.4   Human judgment and irrationality ... 538
+    16.4   Multiattribute Utility Functions ... 540
+        16.4.1   Dominance ... 540
+        16.4.2   Preference structure and multiattribute utility ... 543
+            Preferences without uncertainty ... 543
+            Preferences with uncertainty ... 544
+    16.5   Decision Networks ... 544
+        16.5.1   Representing a decision problem with a decision network ... 545
+        16.5.2   Evaluating decision networks ... 546
+    16.6   The Value of Information ... 547
+        16.6.1   A simple example ... 547
+        16.6.2   A general formula for perfect information ... 548
+        16.6.3   Properties of the value of information ... 549
+        16.6.4   Implementation of an information-gathering agent ... 550
+        16.6.5   Nonmyopic information gathering ... 551
+        16.6.6   Sensitivity analysis and robust decisions ... 552
+    16.7   Unknown Preferences ... 553
+        16.7.1   Uncertainty about one's own preferences ... 553
+        16.7.2   Deference to humans ... 554
+    Summary ... 557
+    Bibliographical and Historical Notes ... 557
+Chapter 17   Making Complex Decisions ... 562
+    17.1   Sequential Decision Problems ... 562
+        17.1.1   Utilities over time ... 564
+        17.1.2   Optimal policies and the utilities of states ... 567
+        17.1.3   Reward scales ... 569
+        17.1.4   Representing MDPs ... 570
+    17.2   Algorithms for MDPs ... 572
+        17.2.1   Value Iteration ... 572
+            Convergence of value iteration ... 574
+        17.2.2   Policy iteration ... 576
+        17.2.3   Linear programming ... 578
+        17.2.4   Online algorithms for MDPs ... 578
+    17.3   Bandit Problems ... 581
+        17.3.1   Calculating the Gittins index ... 583
+        17.3.2   The Bernoulli bandit ... 584
+        17.3.3   Approximately optimal bandit policies ... 585
+        17.3.4   Non-indexable variants ... 586
+    17.4   Partially Observable MDPs ... 588
+        17.4.1   Definition of POMDPs ... 588
+    17.5   Algorithms for Solving POMDPs ... 590
+        17.5.1   Value iteration for POMDPs ... 590
+        17.5.2   Online algorithms for POMDPs ... 593
+    Summary ... 595
+    Bibliographical and Historical Notes ... 596
+Chapter 18   Multiagent Decision Making ... 599
+    18.1   Properties of Multiagent Environments ... 599
+        18.1.1   One decision maker ... 599
+        18.1.2   Multiple decision makers ... 600
+        18.1.3   Multiagent planning ... 601
+        18.1.4   Planning with multiple agents: Cooperation and coordination ... 604
+    18.2   Non-Cooperative Game Theory ... 605
+        18.2.1   Games with a single move: Normal form games ... 605
+        18.2.2   Social welfare ... 609
+            Computing equilibria ... 610
+        18.2.3   Repeated games ... 614
+        18.2.4   Sequential games: The extensive form ... 617
+            Chance and simultaneous moves ... 619
+            Capturing imperfect information ... 619
+        18.2.5   Uncertain payoffs and assistance games ... 623
+    18.3   Cooperative Game Theory ... 626
+        18.3.1   Coalition structures and outcomes ... 626
+        18.3.2   Strategy in cooperative games ... 627
+        18.3.3   Computation in cooperative games ... 630
+            Marginal contribution nets ... 630
+            Coalition structures for maximum social welfare ... 631
+    18.4   Making Collective Decisions ... 632
+        18.4.1   Allocating tasks with the contract net ... 632
+        18.4.2   Allocating scarce resources with auctions ... 634
+            Common goods ... 637
+        18.4.3   Voting ... 638
+            Strategic manipulation ... 641
+        18.4.4   Bargaining ... 641
+            Bargaining with the alternating offers protocol ... 641
+            Impatient agents ... 642
+            Negotiation in task-oriented domains ... 643
+            The monotonic concession protocol ... 644
+            The Zeuthen strategy ... 644
+    Summary ... 645
+    Bibliographical and Historical Notes ... 646
+Part V: Machine Learning
+Chapter 19   Learning from Examples ... 651
+    19.1   Forms of Learning ... 651
+    19.2   Supervised Learning ... 653
+        19.2.1   Example problem: Restaurant waiting ... 656
+    19.3   Learning Decision Trees ... 657
+        19.3.1   Expressiveness of decision trees ... 657
+        19.3.2   Learning decision trees from examples ... 658
+        19.3.3   Choosing attribute tests ... 661
+        19.3.4   Generalization and overfitting ... 663
+        19.3.5   Broadening the applicability of decision trees ... 664
+    19.4   Model Selection and Optimization ... 665
+        19.4.1   Model selection ... 667
+        19.4.2   From error rates to loss ... 669
+        19.4.3   Regularization ... 671
+        19.4.4   Hyperparameter tuning ... 671
+    19.5   The Theory of Learning ... 672
+        19.5.1   PAC learning example: Learning decision lists ... 674
+    19.6   Linear Regression and Classification ... 676
+        19.6.1   Univariate linear regression ... 676
+        19.6.2   Gradient descent ... 677
+        19.6.3   Multivariable linear regression ... 679
+        19.6.4   Linear classifiers with a hard threshold ... 682
+        19.6.5   Linear classification with logistic regression ... 684
+    19.7   Nonparametric Models ... 686
+        19.7.1   Nearest-neighbor models ... 687
+        19.7.2   Finding nearest neighbors with k-d trees ... 688
+        19.7.3   Locality-sensitive hashing ... 689
+        19.7.4   Nonparametric regression ... 691
+        19.7.5   Support vector machines ... 692
+        19.7.6   The kernel trick ... 695
+    19.8   Ensemble Learning ... 696
+        19.8.1   Bagging ... 697
+        19.8.2   Random forests ... 697
+        19.8.3   Stacking ... 699
+        19.8.4   Boosting ... 699
+        19.8.5   Gradient boosting ... 701
+        19.8.6   Online learning ... 702
+    19.9   Developing Machine Learning Systems ... 704
+        19.9.1   Problem formulation ... 704
+        19.9.2   Data collection, assessment, and management ... 705
+            Feature engineering ... 707
+            Exploratory data analysis and visualization ... 708
+        19.9.3   Model selection and training ... 709
+        19.9.4   Trust, interpretability, and explainability ... 710
+        19.9.5   Operation, monitoring, and maintenance ... 712
+    Summary ... 714
+    Bibliographical and Historical Notes ... 715
+Chapter 20   Learning Probabilistic Models ... 721
+    20.1   Statistical Learning ... 721
+    20.2   Learning with Complete Data ... 724
+        20.2.1   Maximum-likelihood parameter learning: Discrete models ... 725
+        20.2.2   Naive Bayes models ... 727
+        20.2.3   Generative and discriminative models ... 727
+        20.2.4   Maximum-likelihood parameter learning: Continuous models ... 728
+        20.2.5   Bayesian parameter learning ... 730
+        20.2.6   Bayesian linear regression ... 732
+        20.2.7   Learning Bayes net structures ... 734
+        20.2.8   Density estimation with nonparametric models ... 736
+    20.3   Learning with Hidden Variables: The EM Algorithm ... 737
+        20.3.1   Unsupervised clustering: Learning mixtures of Gaussians ... 738
+        20.3.2   Learning Bayes net parameter values for hidden variables ... 741
+        20.3.3   Learning hidden Markov models ... 744
+        20.3.4   The general form of the EM algorithm ... 744
+        20.3.5   Learning Bayes net structures with hidden variables ... 745
+    Summary ... 746
+    Bibliographical and Historical Notes ... 747
+Chapter 21   Deep Learning ... 750
+    21.1   Simple Feedforward Networks ... 751
+        21.1.1   Networks as complex functions ... 751
+        21.1.2   Gradients and learning ... 754
+    21.2   Computation Graphs for Deep Learning ... 756
+        21.2.1   Input encoding ... 756
+        21.2.2   Output layers and loss functions ... 757
+        21.2.3   Hidden layers ... 759
+    21.3   Convolutional Networks ... 760
+        21.3.1   Pooling and downsampling ... 762
+        21.3.2   Tensor operations in CNNs ... 763
+        21.3.3   Residual networks ... 764
+    21.4   Learning Algorithms ... 765
+        21.4.1   Computing gradients in computation graphs ... 766
+        21.4.2   Batch normalization ... 768
+    21.5   Generalization ... 768
+        21.5.1   Choosing a network architecture ... 768
+        21.5.2   Neural architecture search ... 770
+        21.5.3   Weight decay ... 771
+        21.5.4   Dropout ... 772
+    21.6   Recurrent Neural Networks ... 772
+        21.6.1   Training a basic RNN ... 773
+        21.6.2   Long short-term memory RNNs ... 775
+    21.7   Unsupervised Learning and Transfer Learning ... 775
+        21.7.1   Unsupervised learning ... 776
+            Probabilistic PCA: A simple generative model ... 776
+            Autoencoders ... 778
+            Deep autoregressive models ... 779
+            Generative adversarial networks ... 780
+            Unsupervised translation ... 780
+        21.7.2   Transfer learning and multitask learning ... 781
+    21.8   Applications ... 782
+        21.8.1   Vision ... 782
+        21.8.2   Natural language processing ... 783
+        21.8.3   Reinforcement learning ... 783
+    Summary ... 784
+    Bibliographical and Historical Notes ... 785
+Chapter 22   Reinforcement Learning ... 789
+    22.1   Learning from Rewards ... 789
+    22.2   Passive Reinforcement Learning ... 791
+        22.2.1   Direct utility estimation ... 792
+        22.2.2   Adaptive dynamic programming ... 793
+        22.2.3   Temporal-difference learning ... 793
+    22.3   Active Reinforcement Learning ... 797
+        22.3.1   Exploration ... 797
+        22.3.2   Safe exploration ... 799
+        22.3.3   Temporal-difference Q-learning ... 801
+    22.4   Generalization in Reinforcement Learning ... 803
+        22.4.1   Approximating direct utility estimation ... 804
+        22.4.2   Approximating temporal-difference learning ... 805
+        22.4.3   Deep reinforcement learning ... 806
+        22.4.4   Reward shaping ... 807
+        22.4.5   Hierarchical reinforcement learning ... 807
+    22.5   Policy Search ... 810
+    22.6   Apprenticeship and Inverse Reinforcement Learning ... 812
+    22.7   Applications of Reinforcement Learning ... 815
+        22.7.1   Applications in game playing ... 815
+        22.7.2   Application to robot control ... 816
+    Summary ... 818
+    Bibliographical and Historical Notes ... 819
+Part VI: Communicating, perceiving, and acting
+Chapter 23   Natural Language Processing ... 823
+    23.1   Language Models ... 823
+        23.1.1   The bag-of-words model ... 824
+        23.1.2   N-gram word models ... 826
+        23.1.3   Other n-gram models ... 826
+        23.1.4   Smoothing n-gram models ... 827
+        23.1.5   Word representations ... 828
+        23.1.6   Part-of-speech (POS) tagging ... 829
+        23.1.7   Comparing language models ... 832
+    23.2   Grammar ... 833
+        23.2.1   The lexicon of E0 ... 835
+    23.3   Parsing ... 835
+        23.3.1   Dependency parsing ... 838
+        23.3.2   Learning a parser from examples ... 839
+    23.4   Augmented Grammars ... 841
+        23.4.1   Semantic interpretation ... 843
+        23.4.2   Learning semantic grammars ... 845
+    23.5   Complications of Real Natural Language ... 845
+    23.6   Natural Language Tasks ... 849
+    Summary ... 850
+    Bibliographical and Historical Notes ... 851
+Chapter 24   Deep Learning for Natural Language Processing ... 856
+    24.1   Word Embeddings ... 856
+    24.2   Recurrent Neural Networks for NLP ... 860
+        24.2.1   Language models with recurrent neural networks ... 860
+        24.2.2   Classification with recurrent neural networks ... 862
+        24.2.3   LSTMs for NLP tasks ... 863
+    24.3   Sequence-to-Sequence Models ... 864
+        24.3.1   Attention ... 865
+        24.3.2   Decoding ... 867
+    24.4   The Transformer Architecture ... 868
+        24.4.1   Self-attention ... 868
+        24.4.2   From self-attention to transformer ... 869
+    24.5   Pretraining and Transfer Learning ... 871
+        24.5.1   Pretrained word embeddings ... 871
+        24.5.2   Pretrained contextual representations ... 873
+        24.5.3   Masked language models ... 873
+    24.6   State of the art ... 875
+    Summary ... 878
+    Bibliographical and Historical Notes ... 878
+Chapter 25   Computer Vision ... 881
+    25.1   Introduction ... 881
+    25.2   Image Formation ... 882
+        25.2.1   Images without lenses: The pinhole camera ... 882
+        25.2.2   Lens systems ... 884
+        25.2.3   Scaled orthographic projection ... 885
+        25.2.4   Light and shading ... 886
+        25.2.5   Color ... 888
+    25.3   Simple Image Features ... 888
+        25.3.1   Edges ... 889
+        25.3.2   Texture ... 892
+        25.3.3   Optical flow ... 893
+        25.3.4   Segmentation of natural images ... 894
+    25.4   Classifying Images ... 895
+        25.4.1   Image classification with convolutional neural networks ... 896
+        25.4.2   Why convolutional neural networks classify images well ... 897
+    25.5   Detecting Objects ... 899
+    25.6   The 3D World ... 901
+        25.6.1   3D cues from multiple views ... 901
+        25.6.2   Binocular stereopsis ... 902
+        25.6.3   3D cues from a moving camera ... 904
+        25.6.4   3D cues from one view ... 905
+    25.7   Using Computer Vision ... 906
+        25.7.1   Understanding what people are doing ... 906
+        25.7.2   Linking pictures and words ... 909
+        25.7.3   Reconstruction from many views ... 911
+        25.7.4   Geometry from a single view ... 911
+        25.7.5   Making pictures ... 913
+        25.7.6   Controlling movement with vision ... 917
+    Summary ... 919
+    Bibliographical and Historical Notes ... 920
+Chapter 26   Robotics ... 925
+    26.1   Robots ... 925
+    26.2   Robot Hardware ... 926
+        26.2.1   Types of robots from the hardware perspective ... 926
+        26.2.2   Sensing the world ... 927
+        26.2.3   Producing motion ... 929
+    26.3   What kind of problem is robotics solving? ... 930
+    26.4   Robotic Perception ... 931
+        26.4.1   Localization and mapping ... 932
+        26.4.2   Other types of perception ... 935
+        26.4.3   Supervised and unsupervised learning in robot perception ... 937
+    26.5   Planning and Control ... 938
+        26.5.1   Configuration space ... 939
+        26.5.2   Motion planning ... 942
+            Visibility graphs ... 943
+            Voronoi diagrams ... 943
+            Cell decomposition ... 945
+            Randomized motion planning ... 946
+            Rapidly-exploring random trees ... 947
+            Trajectory optimization for kinematic planning ... 948
+        26.5.3   Trajectory tracking control ... 950
+            Plans versus policies ... 954
+        26.5.4   Optimal control ... 954
+    26.6   Planning Uncertain Movements ... 956
+    26.7   Reinforcement Learning in Robotics ... 958
+        26.7.1   Exploiting models ... 959
+        26.7.2   Exploiting other information ... 960
+    26.8   Humans and Robots ... 961
+        26.8.1   Coordination ... 961
+            Humans as approximately rational agents ... 961
+            Predicting human action ... 962
+            Human predictions about the robot ... 964
+            Humans as black box agents ... 965
+        26.8.2   Learning to do what humans want ... 965
+            Preference learning: Learning cost functions ... 965
+            Learning policies directly via imitation ... 966
+    26.9   Alternative Robotic Frameworks ... 968
+        26.9.1   Reactive controllers ... 968
+        26.9.2   Subsumption architectures ... 969
+    26.10   Application Domains ... 971
+    Summary ... 974
+    Bibliographical and Historical Notes ... 975
+Part VII: Conclusions
+Chapter 27   Philosophy, Ethics, and Safety of AI ... 981
+    27.1   The Limits of AI ... 981
+        27.1.1   The argument from informality ... 981
+        27.1.2   The argument from disability ... 982
+        27.1.3   The mathematical objection ... 983
+        27.1.4   Measuring AI ... 984
+    27.2   Can Machines Really Think? ... 984
+        27.2.1   The Chinese room ... 985
+        27.2.2   Consciousness and qualia ... 985
+    27.3   The Ethics of AI ... 986
+        27.3.1   Lethal autonomous weapons ... 987
+        27.3.2   Surveillance, security, and privacy ... 990
+        27.3.3   Fairness and bias ... 992
+        27.3.4   Trust and transparency ... 996
+        27.3.5   The future of work ... 998
+        27.3.6   Robot rights ... 1000
+        27.3.7   AI Safety ... 1001
+    Summary ... 1005
+    Bibliographical and Historical Notes ... 1006
+Chapter 28   The Future of AI ... 1012
+    28.1   AI Components ... 1012
+            Sensors and actuators ... 1012
+            Representing the state of the world ... 1013
+            Selecting actions ... 1014
+            Deciding what we want ... 1014
+            Learning ... 1015
+            Resources ... 1017
+    28.2   AI Architectures ... 1018
+            General AI ... 1020
+            AI engineering ... 1021
+            The future ... 1022
+Appendix A:   Mathematical Background ... 1023
+    A.1   Complexity Analysis and O() Notation ... 1023
+        A.1.1   Asymptotic analysis ... 1023
+        A.1.2   NP and inherently hard problems ... 1024
+    A.2   Vectors, Matrices, and Linear Algebra ... 1025
+    A.3   Probability Distributions ... 1027
+    Bibliographical and Historical Notes ... 1029
+Appendix B:   Notes on Languages and Algorithms ... 1030
+    B.1   Defining Languages with Backus--Naur Form (BNF) ... 1030
+    B.2   Describing Algorithms with Pseudocode ... 1031
+    B.3   Online Supplemental Material ... 1032
+Bibliography ... 1033
+Index ... 1089

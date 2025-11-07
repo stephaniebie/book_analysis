@@ -1,1 +1,61 @@
-# book_analysis
+# Book Analysis
+CU Boulder DTSC 5501 Group Project #2: Data Structures in Action Table of Contents & Text Analysis
+
+## Roles & Responsibilities
+
+# TODO
+
+Written and maintained by Group 11:
+- **Abhinav Mehrotra**:
+- **Atharva Zodpe**:
+- **Karan Cheemalapati**: Q1 traversal method implementation
+- **Stephanie Bie**: Q1 data structure design, packaging
+
+## Install
+
+```bash
+git clone git@github.com:stephaniebie/book_analysis.git
+```
+
+Create and enter a virtual environment (Windows):
+
+```bash
+python -m venv venv
+source venv/Scripts/activate
+```
+
+Once in the environment, install the package:
+
+```bash
+pip install .
+```
+
+### For Developers
+
+Once in the environment, install the package in editable mode:
+
+```bash
+pip install -e .[dev]
+```
+
+Install a kernel for use with Jupyter notebooks:
+
+```bash
+python -m ipykernel install --user --name=book_analysis
+```
+
+Optionally, run `black .` prior to pushing to ensure uniform formatting.
+
+## Testing
+
+Run the following command to run the unit tests:
+
+```bash
+pytest tests
+```
+
+## Setup
+
+### Design Philosophy
+
+# TODO

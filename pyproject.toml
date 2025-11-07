@@ -1,0 +1,22 @@
+[project]
+name = "book_analysis"
+version = "0.0.1"
+description = "DTSC 5501 Group Project #2: Data Structures in Action Table of Contents & Text Analysis"
+requires-python = ">=3.10"
+authors = [
+    { name = "Abhinav Mehrotra", email = "Abhinav.Mehrotra@colorado.edu" },
+    { name = "Atharva Zodpe", email = "Atharva.Zodpe@colorado.edu" },
+    { name = "Karan Cheemalapati", email = "Karan.Cheemalapati@colorado.edu" },
+    { name = "Stephanie Bie", email = "Stephanie.Bie@colorado.edu" },
+]
+dependencies = [
+    "ipykernel",
+    "jupyter",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "black"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

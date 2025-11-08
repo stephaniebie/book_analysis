@@ -2,15 +2,10 @@ from book_analysis.toc import (
     construct_toc,
     read_toc,
     Section,
-    TableOfContents,
 )
 
 
 def test_Section():
-    assert True
-
-
-def test_TableOfContents():
     assert True
 
 

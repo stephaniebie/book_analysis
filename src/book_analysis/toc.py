@@ -4,19 +4,19 @@ from book_analysis.parser import read_txt, parse_title
 
 class Section:
     """
-    Node of a tree representing a section of a book.
+    Section node within a table of contents tree.
     """
 
-    def __init__(self, title: str, id: int, children: list[Section]):
+    def __init__(self, title: str, children: list[Section], id: int):
         """
         Parameters
         ----------
         title: str
             The title of the section stored at each node
-        id: int
-            Section title identifier
         children: list[Section]
             List of children nodes
+        id: int
+            Section title identifier
         """
         self.title = title
         self.children = children
@@ -24,36 +24,6 @@ class Section:
 
     def __repr__(self):
         return f"({self.id}) {self.title}"
-
-    def height(self) -> int:
-        """
-        Maximum number of links from the highest level section to the furthest leaf section.
-        """
-        # Base case
-        if not self.children:
-            return 0
-
-        # Recursively find the maximum depth
-        max_depth = 0
-        for section in self.children:
-            max_depth = max(section.height(), max_depth)
-
-        return max_depth + 1
-
-
-class TableOfContents:
-    """
-    Table of contents tree.
-    """
-
-    def __init__(self, children: list[Section]):
-        """
-        Parameters
-        ----------
-        children: list[Section] | None
-            List of possibly nested sections within the book
-        """
-        self.children = children
 
     def insert(self, path: list[int], title: str):
         """
@@ -74,7 +44,7 @@ class TableOfContents:
                 current_level = current_level.children[found_index]
             except:
                 break
-        section = Section(title=title, id=idx, children=[])
+        section = Section(title=title, children=[], id=idx)
         try:
             current_level.children.insert(idx - 1, section)
         except:
@@ -109,34 +79,41 @@ class TableOfContents:
         -------
         The depth of the section as an integer
         """
-        raise NotImplementedError
+        return max([s.depth(title) for s in self.children])
 
     def height(self) -> int:
         """
         Maximum number of links from the highest level section to the furthest leaf section.
         """
-        if self.children:
-            return max([s.height() for s in self.children]) + 1
-        return 0
+        # Base case
+        if not self.children:
+            return 0
+
+        # Recursively find the maximum depth
+        max_depth = 0
+        for section in self.children:
+            max_depth = max(section.height(), max_depth)
+
+        return max_depth + 1
 
 
-def construct_toc(lines: list[str], include_parts: bool = False) -> TableOfContents:
+def construct_toc(lines: list[str], title: str = "", top_level: bool = True) -> Section:
     """
-    Construct a TableOfContents object from a list of section titles.
+    Construct a table of contents from a list of section titles.
 
     Parameters
     ----------
     lines: list[str]
         List of section titles
-    include_parts: bool
+    top_level: bool
         Determines if the highest level should be parsed
 
     Returns
     -------
-    TableOfContents object
+    Root Section object
     """
     # Initialize table of contents
-    toc = TableOfContents(children=[])
+    toc = Section(title=title, children=[], id=0)
     current_part = None
     # Iterate through list of titles
     for line in lines:
@@ -147,7 +124,7 @@ def construct_toc(lines: list[str], include_parts: bool = False) -> TableOfConte
             continue
 
         # Populates the highest level section
-        if include_parts:
+        if top_level:
             if path[0] is not None:
                 current_part = path[0]
             path[0] = current_part
@@ -160,19 +137,19 @@ def construct_toc(lines: list[str], include_parts: bool = False) -> TableOfConte
     return toc
 
 
-def read_toc(path: str, include_parts: bool = False) -> TableOfContents:
+def read_toc(path: str, top_level: bool = True) -> Section:
     """
-    Read in a TXT file containing table of contents data into a TableOfContents object.
+    Read in a TXT file containing table of contents data into a Section object.
 
     Parameters
     ----------
     path: str
         Path to TXT file
-    include_parts: bool
+    top_level: bool
         Determines if the highest level should be parsed
 
     Returns
     -------
-    TableOfContents object
+    Section object
     """
-    return construct_toc(read_txt(path), include_parts=include_parts)
+    return construct_toc(read_txt(path), top_level=top_level)

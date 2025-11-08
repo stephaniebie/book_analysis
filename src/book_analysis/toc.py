@@ -30,7 +30,9 @@ class Section:
         NOTE: This does not hold well with certain cases, like with identical titles at different levels within a table of contents!
         """
         if not isinstance(other, Section):
-            raise TypeError(f"Equality cannot be established between types {Section} and {type(other)}")
+            raise TypeError(
+                f"Equality cannot be established between types {Section} and {type(other)}"
+            )
         return self.title == other.title
 
     def __repr__(self):

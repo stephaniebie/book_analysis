@@ -1,5 +1,5 @@
 from __future__ import annotations
-from book_analysis.parser import read_txt, parse_title
+from book_analysis.parser import parse_title
 from book_analysis.search import dfs
 
 
@@ -92,8 +92,17 @@ class Section:
         -------
         The depth of the section as an integer
         """
-        # Implementation notes: probably use DFS here?
-        raise NotImplementedError
+        if self.title == title:
+            return self._depth
+
+        for section in self.children:
+            section._depth = self._depth + 1
+            section_depth = section.depth(title)
+            if section_depth is not None:
+                return section_depth
+        return None
+
+        # raise ValueError(f"Could not find '{title}' within table of contents.")
 
     def height(self) -> int:
         """
@@ -151,7 +160,7 @@ def construct_toc(lines: list[str], title: str = "", top_level: bool = True) -> 
     return toc
 
 
-def read_toc(path: str, top_level: bool = True) -> Section:
+def read_toc(path: str, title: str = "", top_level: bool = True) -> Section:
     """
     Read in a TXT file containing table of contents data into a Section object.
 
@@ -159,6 +168,8 @@ def read_toc(path: str, top_level: bool = True) -> Section:
     ----------
     path: str
         Path to TXT file
+    title: str
+        Title of the book
     top_level: bool
         Determines if the highest level should be parsed
 
@@ -166,4 +177,6 @@ def read_toc(path: str, top_level: bool = True) -> Section:
     -------
     Section object
     """
-    return construct_toc(read_txt(path), top_level=top_level)
+    with open(path, "r") as f:
+        lines = f.readlines()
+    return construct_toc(lines=lines, title=title, top_level=top_level)

@@ -1,5 +1,6 @@
 from __future__ import annotations
 from book_analysis.parser import read_txt, parse_title
+from book_analysis.search import dfs
 
 
 class Section:
@@ -21,6 +22,16 @@ class Section:
         self.title = title
         self.children = children
         self.id = id
+        self._depth = 0
+
+    def __eq__(self, other):
+        """
+        Define equality between two Section objects as two sections with identical titles.
+        NOTE: This does not hold well with certain cases, like with identical titles at different levels within a table of contents!
+        """
+        if not isinstance(other, Section):
+            raise TypeError(f"Equality cannot be established between types {Section} and {type(other)}")
+        return self.title == other.title
 
     def __repr__(self):
         return f"({self.id}) {self.title}"
@@ -79,7 +90,8 @@ class Section:
         -------
         The depth of the section as an integer
         """
-        return max([s.depth(title) for s in self.children])
+        # Implementation notes: probably use DFS here?
+        raise NotImplementedError
 
     def height(self) -> int:
         """

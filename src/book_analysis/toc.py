@@ -8,21 +8,29 @@ class Section:
     Section node within a table of contents tree.
     """
 
-    def __init__(self, title: str, children: list[Section], id: int):
+    def __init__(self, title: str, children: list[Section]):
         """
         Parameters
         ----------
         title: str
             The title of the section stored at each node
         children: list[Section]
-            List of children nodes
-        id: int
-            Section title identifier
+            List of children nodes. If the current section is a leaf, this will be an empty list.
         """
         self.title = title
         self.children = children
-        self.id = id
+        self._id = None
         self._depth = 0
+
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, value: int | None):
+        if not isinstance(value, (int, None)):
+            raise TypeError(f"Invalide type {type(value)} being set to ID")
+        self._id = value
 
     def __eq__(self, other):
         """
@@ -36,6 +44,8 @@ class Section:
         return self.title == other.title
 
     def __repr__(self):
+        if self.id is None:
+            return self.title
         return f"({self.id}) {self.title}"
 
     def insert(self, path: list[int], title: str):
@@ -49,19 +59,34 @@ class Section:
         title: str
             Title of the section to be inserted
         """
+        # Iterates through each index within the path to find the insertion location
         current_level = self
-        for idx in path:
-            indices = [s.id for s in current_level.children]
+        for i, idx in enumerate(path):
+            # Gets all IDs of the children
+            ids = [s.id for s in current_level.children]
             try:
-                found_index = indices.index(idx)
+                # Finds the path index within this list of IDs
+                found_index = ids.index(idx)
+                # If found, shifts the node to the next lower level
                 current_level = current_level.children[found_index]
             except:
                 break
-        section = Section(title=title, children=[], id=idx)
-        try:
-            current_level.children.insert(idx - 1, section)
-        except:
-            current_level.children.append(section)
+
+        # Inserts if path is complete
+        if i + 1 == len(path):
+            # Create a Section object
+            section = Section(title=title, children=[])
+            section.id = idx
+
+            # Tries to insert the section at a particular index (to maintain sorting)
+            try:
+                current_level.children.insert(idx - 1, section)
+            # If idx - 1 does not exist, just appends the section to the end of the children list
+            except:
+                current_level.children.append(section)
+        # Does not allow insert if path is incomplete
+        else:
+            raise IndexError(f"Invalid path {path}")
 
     def print(self, mode: str = "indented+numbers"):
         """
@@ -92,23 +117,26 @@ class Section:
         -------
         The depth of the section as an integer
         """
+        # Base case: if the title is found, returns the depth
         if self.title == title:
             return self._depth
 
+        # Iterates through all the children nodes
         for section in self.children:
+            # Increase the depth count each time
             section._depth = self._depth + 1
+            # Iteratively finds the depth
             section_depth = section.depth(title)
+            # Moves further down if the title is found under the child
             if section_depth is not None:
                 return section_depth
         return None
-
-        # raise ValueError(f"Could not find '{title}' within table of contents.")
 
     def height(self) -> int:
         """
         Maximum number of links from the highest level section to the furthest leaf section.
         """
-        # Base case
+        # Base case: height is zero if node has no children
         if not self.children:
             return 0
 
@@ -116,7 +144,6 @@ class Section:
         max_depth = 0
         for section in self.children:
             max_depth = max(section.height(), max_depth)
-
         return max_depth + 1
 
 
@@ -136,7 +163,7 @@ def construct_toc(lines: list[str], title: str = "", top_level: bool = True) -> 
     Root Section object
     """
     # Initialize table of contents
-    toc = Section(title=title, children=[], id=0)
+    toc = Section(title=title, children=[])
     current_part = None
     # Iterate through list of titles
     for line in lines:
@@ -177,6 +204,8 @@ def read_toc(path: str, title: str = "", top_level: bool = True) -> Section:
     -------
     Section object
     """
+    # Read in each line of the TXT file
     with open(path, "r") as f:
         lines = f.readlines()
+    # Constructs the Section object
     return construct_toc(lines=lines, title=title, top_level=top_level)

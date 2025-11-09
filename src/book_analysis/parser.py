@@ -2,24 +2,6 @@ import re
 from book_analysis.defaults import ROMAN_NUMERALS
 
 
-def read_txt(path: str) -> list:
-    """
-    Read in table of contents from a text file.
-
-    Parameters
-    ----------
-    path: str
-        Path to the text file
-
-    Returns
-    -------
-    List of lines within the text file
-    """
-    with open(path, "r") as f:
-        lines = f.readlines()
-    return lines
-
-
 def convert_roman_numerals(numerals: str) -> int:
     """
     Convert Roman numerals to an integer value.
@@ -48,7 +30,7 @@ def convert_roman_numerals(numerals: str) -> int:
 def parse_title(title: str) -> tuple[list[int], str]:
     """
     Parse a table of contents section title.
-    NOTE: Format is specific to the "Artificial Intelligence: A Modern Approach" format.
+    NOTE: Format is specific to "Artificial Intelligence: A Modern Approach"
 
     Parameters
     ----------

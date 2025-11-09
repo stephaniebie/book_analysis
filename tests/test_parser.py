@@ -1,17 +1,5 @@
 import pytest
-from book_analysis.parser import (
-    convert_roman_numerals,
-    parse_title,
-    read_txt,
-)
-
-test_filepath = "data/artificial_intelligence_a_modern_approach.txt"
-
-
-def test_read_txt():
-    with open(test_filepath, "r") as f:
-        expected = f.readlines()
-    assert read_txt(test_filepath) == expected
+from book_analysis.parser import convert_roman_numerals, parse_title
 
 
 @pytest.mark.parametrize(

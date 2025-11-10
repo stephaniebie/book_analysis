@@ -1,6 +1,0 @@
-matplotlib
-wordcloud
-nltk
-pandas
-numpy
-IPython

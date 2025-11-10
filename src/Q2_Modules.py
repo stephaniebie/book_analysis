@@ -211,35 +211,6 @@ def sentence_metrics(raw_text: str):
         'common_sentence_starters': common_starters
     }
 
-# Read the text of the book from novel_path
-with open(novel_path, 'r', encoding='utf-8') as f:
-    book_text = f.read()
-
-# Split text into chapters using a regex pattern
-# Works for "CHAPTER I", "CHAPTER II", etc.
-chapters = re.split(r'\bCHAPTER [IVXLCDM]+\b', book_text, flags=re.IGNORECASE)
-
-# The first element is usually the preface or header, so skip it
-chapters = [ch.strip() for ch in chapters if len(ch.strip()) > 500]
-
-# Run sentence_metrics() on each chapter and store results
-chapter_results = []
-for i, ch in enumerate(chapters, start=1):
-    print(f"Processing Chapter {i}...")
-    metrics = sentence_metrics(ch)
-    metrics["chapter"] = i
-    chapter_results.append(metrics)
-
-# Combine results into a DataFrame for summary
-results_df = pd.DataFrame(chapter_results)
-
-# Display summary
-print("\nSentence metrics by chapter:")
-display(results_df.head())
-
-# Optionally, save to CSV
-# results_df.to_csv("sentence_metrics_by_chapter.csv", index=False)
-
 def _test_text_utils():
     sample = "Hello, world! Don't stop. The data's great; it's 2025."
     cleaned, tokens, b, a = preprocess_text(sample)
@@ -252,5 +223,6 @@ def _test_text_utils():
     n2 = ngram_counts(['a','b','c','d'], 2)
     assert n2['a b'] == 1
     print("Text utils tests passed.")
+
 
 _test_text_utils()

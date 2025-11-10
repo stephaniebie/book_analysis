@@ -7,7 +7,7 @@ CU Boulder DTSC 5501 Group Project #2: Data Structures in Action Table of Conten
 
 Written and maintained by Group 11:
 - **Abhinav Mehrotra**:
-- **Atharva Zodpe**:
+- **Atharva Zodpe**: Q2 Plotting functions, unit test, solved extra challenge(Sentence Metrics)
 - **Karan Cheemalapati**: Q1 traversal method implementation
 - **Stephanie Bie**: Q1 data structure design, packaging
 

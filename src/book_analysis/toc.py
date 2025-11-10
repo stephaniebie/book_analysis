@@ -1,6 +1,6 @@
 from __future__ import annotations
 from book_analysis.parser import parse_title
-from book_analysis.search import dfs
+from book_analysis.traversal import preorder_traversal
 
 
 class Section:
@@ -20,6 +20,7 @@ class Section:
         self.title = title
         self.children = children
         self._id = None
+        self._path = []
         self._depth = 0
 
     @property
@@ -46,7 +47,7 @@ class Section:
     def __repr__(self):
         if self.id is None:
             return self.title
-        return f"({self.id}) {self.title}"
+        return f"({'.'.join([str(i) for i in self._path])}) {self.title}"
 
     def insert(self, path: list[int], title: str):
         """
@@ -77,6 +78,8 @@ class Section:
             # Create a Section object
             section = Section(title=title, children=[])
             section.id = idx
+            section._path = path
+            section._depth = len(path)
 
             # Tries to insert the section at a particular index (to maintain sorting)
             try:
@@ -88,21 +91,39 @@ class Section:
         else:
             raise IndexError(f"Invalid path {path}")
 
-    def print(self, mode: str = "indented+numbers"):
+    def print(self, mode: str = "indented+numbered"):
         """
         Prints the table of contents to stdout.
+
+        Parameters
+        ----------
+        mode: str
+            The format in which to print the table of contents.
+            Valid enumerations:
+                "plain": Prints the titles in plaintext
+                "indented": Prints the titles where nested titles are indented
+                "indented+numbered": Prints numbered titles where nested titles are indented
         """
-        # Implementation notes:
-        # traverse full tree -> generate a string
+        # Traverse the tree and get a list of all the titles
+        sections = preorder_traversal(self)
 
         # Developer's note: I'd love to use an Enum here... but that's not in our allowed libraries list :(
+        # Plaintext
         if mode.lower() == "plain":
-            pass
+            print("\n".join([s.title for s in sections]))
+        # Indented
         elif mode.lower() == "indented":
-            pass
-        elif mode.lower() == "indented+numbers":
-            pass
-        raise NotImplementedError
+            sections = ["\t" * (s._depth) + s.title for s in sections]
+            print("\n".join(sections))
+        # Indented with numbers
+        elif mode.lower() == "indented+numbered":
+            sections = [
+                "\t" * (s._depth) + ".".join([str(i) for i in s._path]) + " " + s.title
+                for s in sections
+            ]
+            print("\n".join(sections))
+        else:
+            raise ValueError(f"'{mode}' is an invalid mode")
 
     def depth(self, title: str) -> int:
         """

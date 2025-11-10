@@ -3,13 +3,11 @@ CU Boulder DTSC 5501 Group Project #2: Data Structures in Action Table of Conten
 
 ## Roles & Responsibilities
 
-# TODO
-
 Written and maintained by Group 11:
-- **Abhinav Mehrotra**:
-- **Atharva Zodpe**: Q2 Plotting functions, unit test, solved extra challenge(Sentence Metrics)
+- **Abhinav Mehrotra**: Q2 general implementation and design
+- **Atharva Zodpe**: Q2 plotting functions, unit tests, solved extra challenge (sentence metrics)
 - **Karan Cheemalapati**: Q1 traversal method implementation
-- **Stephanie Bie**: Q1 data structure design, packaging
+- **Stephanie Bie**: Q1 data structure design, unit tests, packaging, git maintenance
 
 ## Install
 
@@ -27,7 +25,7 @@ source venv/Scripts/activate
 Once in the environment, install the package:
 
 ```bash
-pip install .
+pip install book_analysis
 ```
 
 ### For Developers
@@ -35,7 +33,7 @@ pip install .
 Install the package in editable mode:
 
 ```bash
-pip install -e .[dev]
+pip install -e book_analysis[dev]
 ```
 
 Install a kernel for use with Jupyter notebooks:

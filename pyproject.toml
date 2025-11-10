@@ -13,6 +13,9 @@ dependencies = [
     "ipykernel",
     "jupyter",
     "matplotlib",
+    "nltk",
+    "pandas",
+    "wordcloud",
 ]
 
 [project.optional-dependencies]

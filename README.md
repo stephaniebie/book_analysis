@@ -4,8 +4,8 @@ CU Boulder DTSC 5501 Group Project #2: Data Structures in Action Table of Conten
 ## Roles & Responsibilities
 
 Written and maintained by Group 11:
-- **Abhinav Mehrotra**: Q2 natural language processing tasks: pre-processing, frequency count and tokenization
-- **Atharva Zodpe**: Q2 plotting functions, unit tests, solved extra challenge (sentence metrics)
+- **Abhinav Mehrotra**: Q2 natural language processing tasks: pre-processing, frequency count and tokenization, visual representation
+- **Atharva Zodpe**: solved extra challenge (sentence metrics)
 - **Karan Cheemalapati**: Q1 traversal method implementation
 - **Stephanie Bie**: Q1 data structure design, unit tests, packaging, git maintenance
 
